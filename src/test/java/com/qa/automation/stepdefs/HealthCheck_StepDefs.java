@@ -53,6 +53,7 @@ public class HealthCheck_StepDefs {
 		this.scn = scn; 				//Assign this to class variable, so that it can be used in all the step def methods
 		driver = new ChromeDriver();
 		testContext.setDriver(driver);
+		testContext.setWebDriverWait(wait);
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(implicitWait_timeout_in_sec, TimeUnit.SECONDS);
