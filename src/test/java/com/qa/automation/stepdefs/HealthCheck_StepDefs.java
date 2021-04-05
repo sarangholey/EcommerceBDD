@@ -32,13 +32,18 @@ public class HealthCheck_StepDefs {
 	private static final Logger logger = LogManager.getLogger(HealthCheck_StepDefs.class);
 
 	WebDriver driver;
+	TestContext testContext;
 	WebDriverWait wait;
 	String base_url = "http://automationpractice.com/";
 	int implicitWait_timeout_in_sec = 20;
 	int pageLoad_timeout_in_sec = 20;
 	int setScript_timeout_in_sec = 20;
 	int webDriver_wait_timeout_sec = 20;
-	Scenario scn; 
+	Scenario scn;
+
+	public HealthCheck_StepDefs(TestContext testContext){
+		this.testContext = testContext;
+	}
 
 
 	@Before
@@ -47,6 +52,7 @@ public class HealthCheck_StepDefs {
 
 		this.scn = scn; 				//Assign this to class variable, so that it can be used in all the step def methods
 		driver = new ChromeDriver();
+		testContext.setDriver(driver);
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(implicitWait_timeout_in_sec, TimeUnit.SECONDS);
