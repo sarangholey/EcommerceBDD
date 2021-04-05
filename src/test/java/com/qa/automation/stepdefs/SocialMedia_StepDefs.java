@@ -40,6 +40,7 @@ public class SocialMedia_StepDefs {
 	public SocialMedia_StepDefs(TestContext testContext){
 		this.testContext = testContext;
 		driver = testContext.getDriver();
+		wait = testContext.getWebDriverWait();
 	}
 
 	@When("User clicks on the facebook link from bottom of the landing page")

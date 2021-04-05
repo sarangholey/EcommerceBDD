@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
 		features = "classpath:features",				// to tell cucumber where is the feature file
 		glue = "com.qa.automation.stepdefs",			// to tell cucumber where is the step definition code
-		tags = "@socialMedia",							// to tell which tagged feature file to execute
+		tags = "@facebook",							// to tell which tagged feature file to execute
 		plugin = {"pretty",								// to show console output as pretty with proper formatting
 				"html:target/html/htmlreport.html", 	// to generate html report inside target folder
 				"json:target/json/file.json",			// to generate json report inside target folder
