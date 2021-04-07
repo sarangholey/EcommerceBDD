@@ -37,53 +37,15 @@ public class HealthCheck_StepDefs {
 	TestContext testContext;
 	WebDriverWait wait;
 	String base_url = "http://automationpractice.com/";
-	int implicitWait_timeout_in_sec = 20;
-	int pageLoad_timeout_in_sec = 20;
-	int setScript_timeout_in_sec = 20;
-	int webDriver_wait_timeout_sec = 20;
 	Scenario scn;
 
 	public HealthCheck_StepDefs(TestContext testContext){
 		this.testContext = testContext;
+		driver = testContext.getDriver();
+		wait = testContext.getWebDriverWait();
+		scn = testContext.getScenario();
 	}
 
-
-	@Before
-	public void setup(Scenario scn)
-	{
-
-		this.scn = scn;				//Assign this to class variable, so that it can be used in all the step def methods
-		driver = new ChromeDriver();
-		testContext.setDriver(driver);
-		driver.manage().deleteAllCookies();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(implicitWait_timeout_in_sec, TimeUnit.SECONDS);
-		driver.manage().timeouts().pageLoadTimeout(pageLoad_timeout_in_sec, TimeUnit.SECONDS);
-		driver.manage().timeouts().setScriptTimeout(setScript_timeout_in_sec, TimeUnit.SECONDS);
-		wait = new WebDriverWait(driver, webDriver_wait_timeout_sec);
-		testContext.setWebDriverWait(wait);
-		scn.log("Browser invoked"); 	// to log info in reports
-		logger.info("Browser invoked");	// to log the info in application log file
-	}
-
-	@After(order=1)
-	public void cleanUp() {
-		driver.quit();
-		scn.log("Browser closed");
-		logger.info("Browser closed");
-	}
-
-	@After(order=2)
-	public void takeScreenShot(Scenario s) {
-		if (s.isFailed()) {
-			TakesScreenshot scrnShot = (TakesScreenshot)driver;
-			byte[] data = scrnShot.getScreenshotAs(OutputType.BYTES);
-			scn.log("Step is failed");
-			scn.attach(data, "image/png","Failed Step Name: " + s.getName());
-		}else{
-			scn.log("Test case is passed, no screen shot captured");
-		}
-	}
 
 	@Given("User navigated to the home application url")
 	public void user_navigated_to_the_home_application_url() {

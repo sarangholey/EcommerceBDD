@@ -27,3 +27,6 @@ hs_err_pid*
 .project
 .classpath
 *.exe
+EcommerceBDD.iml
+.idea
+chromedriver
