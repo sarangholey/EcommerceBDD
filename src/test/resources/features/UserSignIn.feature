@@ -16,7 +16,7 @@ Feature: E-commerce Project Web Site login user fuctionality
       |username|password|firstname|lastname|
       |dsfsfsdfds11@gmail.com|123456|Tom|Peter|
       |dsfsfsdfds12@gmail.com|1234567|John|Tyson| 
-      |dsfsfsdfds13@gmail.com|123456|Steve|Johnson|
+#      |dsfsfsdfds13@gmail.com|123456|Steve|Johnson|
       
 # Second Data is for deliberately failed test - Correct password is 123456
       
