@@ -7,7 +7,7 @@ Feature: E-commerce Project Web Site social media handle validation
   Scenario: Validate facebook social media handle
     Given User navigated to the home application url
     When User clicks on the facebook link from bottom of the landing page
-    And New tab opened with facebook url "https://www.facebook.com"
+    And New tab opened with facebook url "https://www.google.com"
     Then User able to see facebook group with name "Selenium Framework"
 
 	@twitter

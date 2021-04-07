@@ -13,6 +13,21 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
+<!-- 	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.0</version>
+				<configuration>
+					<threadCount>4</threadCount>
+					<perCoreThreadCount>false</perCoreThreadCount>
+					<useUnlimitedThreads>true</useUnlimitedThreads>
+					<argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build> -->
+
 	<dependencies>
 		<dependency>
 			<groupId>io.cucumber</groupId>

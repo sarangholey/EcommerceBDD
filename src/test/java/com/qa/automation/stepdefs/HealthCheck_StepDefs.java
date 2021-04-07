@@ -15,6 +15,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.qa.automation.context.TestContext;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -50,16 +52,16 @@ public class HealthCheck_StepDefs {
 	public void setup(Scenario scn)
 	{
 
-		this.scn = scn; 				//Assign this to class variable, so that it can be used in all the step def methods
+		this.scn = scn;				//Assign this to class variable, so that it can be used in all the step def methods
 		driver = new ChromeDriver();
 		testContext.setDriver(driver);
-		testContext.setWebDriverWait(wait);
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(implicitWait_timeout_in_sec, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(pageLoad_timeout_in_sec, TimeUnit.SECONDS);
 		driver.manage().timeouts().setScriptTimeout(setScript_timeout_in_sec, TimeUnit.SECONDS);
 		wait = new WebDriverWait(driver, webDriver_wait_timeout_sec);
+		testContext.setWebDriverWait(wait);
 		scn.log("Browser invoked"); 	// to log info in reports
 		logger.info("Browser invoked");	// to log the info in application log file
 	}

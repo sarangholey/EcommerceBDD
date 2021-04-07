@@ -16,24 +16,6 @@ Feature: E-commerce Project Web Site Health Check
     Given User navigated to the home application url
     When User is on application landing page
     Then Application title is "My Store"
-
-  @appLogoDisplay
-  Scenario: Validate application logo is displayed
-    Given User navigated to the home application url
-    When User is on application landing page
-    Then Application logo is displayed
-    
-  @appLogoHeight
-  Scenario: Validate application logo height
-    Given User navigated to the home application url
-    When User is on application landing page
-    Then Application logo height is "99"
-    
-  @appLogoWidth
-  Scenario: Validate application logo width
-  	Given User navigated to the home application url
-    When User is on application landing page
-    Then Application logo width is "350"
     
   @searchFunction
   Scenario: Validate user is able to search a product from searchbox on landing page

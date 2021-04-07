@@ -1,4 +1,4 @@
-package com.qa.automation.stepdefs;
+package com.qa.automation.context;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
