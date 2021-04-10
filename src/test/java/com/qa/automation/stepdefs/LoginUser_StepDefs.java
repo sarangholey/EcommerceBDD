@@ -11,6 +11,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.qa.automation.context.TestContext;
@@ -74,6 +75,17 @@ public class LoginUser_StepDefs {
 		String userLastName = username[1];
 		
 		Assert.assertEquals(firstname+ " " +lastname, userFirstName+ " " +userLastName);
+	}
+	
+	@Then("User is unable to login with an error message {string}")
+	public void user_is_unable_to_login_with_an_error_message(String authenticationFailedMessage) {
+	   
+		WebElement failedLoginMsgElement = driver.findElement(By.xpath("//div[@id='center_column']//li[text()='Authentication failed.']"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='center_column']//li[text()='Authentication failed.']")));
+		
+		Assert.assertEquals(authenticationFailedMessage, failedLoginMsgElement.getText());
+		
+		
 	}
 }
 
