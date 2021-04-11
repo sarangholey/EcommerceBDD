@@ -5,7 +5,7 @@
 @ui @healthckeck @smoke
 Feature: E-commerce Project Web Site Health Check
 
-  @appUrlRedirection
+  @appUrlRedirection @ui1
   Scenario: Validate application is redirecting to correct url
     Given User navigated to the home application url
     When User is on application landing page

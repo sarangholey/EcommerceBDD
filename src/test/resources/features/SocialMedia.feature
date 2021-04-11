@@ -6,7 +6,7 @@ Feature: E-commerce Project Web Site social media handle validation
   Background: Navigation to the URL
     Given User navigated to the home application url
 
-  @facebook
+  @facebook @ui1
   Scenario: Validate facebook social media handle
     When User clicks on the facebook link from bottom of the landing page
     And New tab opened with facebook url "https://www.facebook.com"
