@@ -1,6 +1,8 @@
 package com.qa.automation.stepdefs;
 
 import com.qa.automation.context.TestContext;
+import com.qa.automation.core.WebDriverFactory;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -17,6 +19,8 @@ import java.util.concurrent.TimeUnit;
 
 public class StepDefs_Hooks {
     private static final Logger logger = LogManager.getLogger(Thread.getAllStackTraces().getClass().getName());
+    
+    WebDriver driver;
     TestContext testContext;
     Scenario scn;
     int implicitWait_timeout_in_sec = 20;
@@ -30,11 +34,12 @@ public class StepDefs_Hooks {
     }
 
     @Before
-    public void setup(Scenario scn)
+    public void setup(Scenario scn) throws Exception
     {
         this.scn = scn;
-    
-        WebDriver driver = new ChromeDriver();
+        String browserName = WebDriverFactory.getBrowserName();
+        driver = WebDriverFactory.getWebDriverForBrowser(browserName);
+        // WebDriver driver = new ChromeDriver();
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(implicitWait_timeout_in_sec, TimeUnit.SECONDS);
